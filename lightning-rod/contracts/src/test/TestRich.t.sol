@@ -4,13 +4,13 @@ pragma solidity ^0.8.0;
 
 import {RichestComparison} from "../Rich.sol";
 import {IncoTest} from "@inco/lightning/src/test/IncoTest.sol";
-import {GWEI} from "@inco/shared/src/TypeUtils.sol"; // 1 GWEI = 1e9
+import {GWEI} from "@inco/shared/src/TypeUtils.sol"; 
 
 contract TestRichestComparison is IncoTest {
     RichestComparison richestComparison;
 
     function setUp() public override {
-        // always call the parent setUp() function, which deploys the mocked Inco infrastructure
+        
         super.setUp();
         richestComparison = new RichestComparison(alice, bob, eve);
     }
@@ -26,6 +26,6 @@ contract TestRichestComparison is IncoTest {
         processAllOperations();
 
         uint256 decryptedRichestIndex = getUint256Value(richestComparison.richestIndex());
-        assertEq(decryptedRichestIndex, 2); // Bob is the richest
+        assertEq(decryptedRichestIndex, 2); 
     }
 }
