@@ -10,7 +10,7 @@ interface IRichestComparison {
 }
 
 contract CallCompare is Script {
-    IRichestComparison constant rc = IRichestComparison(0x71582639b5Da884f1283eb8752c102D9b09E6731);
+    IRichestComparison constant rc = IRichestComparison(0x2cD21d84330C03c7125D1e9a2110C8329a21Cd4c);
 
     function run() external {
         vm.startBroadcast();

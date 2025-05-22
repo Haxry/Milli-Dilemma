@@ -13,6 +13,13 @@ contract RichestComparison {
     address public bob;
     address public eve;
 
+    event RichestComparisonEvent(
+        address indexed alice,
+        address indexed bob,
+        address indexed eve,
+        uint256 richestIndex
+    );
+
     mapping(address => euint256) public encryptedBalances;
     uint8 public submissions;
 
@@ -26,7 +33,7 @@ contract RichestComparison {
     }
 
     function submitEncryptedBalance(bytes memory valueInput) external {
-        require(msg.sender == alice || msg.sender == bob || msg.sender == eve, "Not a valid participant");
+       // require(msg.sender == alice || msg.sender == bob || msg.sender == eve, "Not a valid participant");
 
         euint256 value = valueInput.newEuint256(msg.sender);
         value.allowThis();
@@ -49,7 +56,7 @@ contract RichestComparison {
 
         result = e.select(eveBeatsCurrent, uint256(2).asEuint256(), result); 
         richestIndex = result;
-        richestIndex.allowThis();
+       richestIndex.allowThis();
         result.allowThis();
     }
 
@@ -65,5 +72,6 @@ contract RichestComparison {
         } else if (result == 2) {
             richIndex = 2;
         }
+        
     }
 }
