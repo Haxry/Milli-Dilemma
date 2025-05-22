@@ -33,7 +33,7 @@ contract RichestComparison {
     }
 
     function submitEncryptedBalance(bytes memory valueInput) external {
-       // require(msg.sender == alice || msg.sender == bob || msg.sender == eve, "Not a valid participant");
+        require(msg.sender == alice || msg.sender == bob || msg.sender == eve, "Not a valid participant");
 
         euint256 value = valueInput.newEuint256(msg.sender);
         value.allowThis();
