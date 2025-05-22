@@ -15,8 +15,13 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "React Startker Kit | inco/js",
-  description: "Starter kit for React with inco/js",
+  title: "Millionaire's Dilemma",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  description: "Check Wether You Are the Richest in the Room",
 };
 
 export default function RootLayout({ children }) {

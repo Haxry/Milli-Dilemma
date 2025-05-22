@@ -15,7 +15,7 @@ export const useContract = () => {
 export const ContractProvider = ({ children }) => {
   const [contractAddress, setContractAddress] = useState('');
 
-  // Load from localStorage on mount
+  
   useEffect(() => {
     const savedAddress = localStorage.getItem('richestAddress');
     if (savedAddress) {
@@ -23,7 +23,7 @@ export const ContractProvider = ({ children }) => {
     }
   }, []);
 
-  // Save to localStorage whenever address changes
+  
   const updateContractAddress = (address) => {
     setContractAddress(address);
     if (address) {

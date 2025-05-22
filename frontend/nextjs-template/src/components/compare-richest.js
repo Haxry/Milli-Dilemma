@@ -1,54 +1,4 @@
-// import React, { useState } from "react";
-// import { useWriteContract } from "wagmi";
-// import { CONTRACT_ADDRESS } from "@/utils/contract";
 
-// const CompareRichest = () => {
-//   const { writeContractAsync } = useWriteContract();
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState("");
-
-//   const compare = async () => {
-//     try {
-//       setLoading(true);
-//       setError("");
-
-//       await writeContractAsync({
-//         address: CONTRACT_ADDRESS,
-//         abi: [
-//           {
-//             inputs: [],
-//             name: "compare",
-//             outputs: [],
-//             stateMutability: "nonpayable",
-//             type: "function",
-//           },
-//         ],
-//         functionName: "compare",
-//         args: [],
-//       });
-//     } catch (err) {
-//       console.error(err);
-//       setError(err.message || "Compare failed");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div className="space-y-2 p-4 bg-gray-800 rounded-xl">
-//       <button
-//         onClick={compare}
-//         disabled={loading}
-//         className="bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700 disabled:opacity-50"
-//       >
-//         {loading ? "Comparing..." : "Compare Richest"}
-//       </button>
-//       {error && <p className="text-red-400">{error}</p>}
-//     </div>
-//   );
-// };
-
-// export default CompareRichest;
 
 import React, { useState } from "react";
 import { useWriteContract, useReadContract, useWaitForTransactionReceipt } from "wagmi";
@@ -65,7 +15,7 @@ const CompareRichest = () => {
   const [winner, setWinner] = useState(null);
   const [showWinner, setShowWinner] = useState(false);
 
-  // Read the richIndex from contract
+  
   const { data: richIndex, refetch: refetchRichIndex } = useReadContract({
     address: contractAddress,
     abi: [
@@ -111,7 +61,7 @@ const CompareRichest = () => {
         throw new Error("No contract deployed. Please deploy a contract first.");
       }
 
-      // Step 1: Call compare function
+      
       setCurrentStep("Comparing encrypted balances...");
       const compareHash = await writeContractAsync({
         address: contractAddress,
@@ -130,12 +80,12 @@ const CompareRichest = () => {
 
       console.log("Compare transaction hash:", compareHash);
 
-      // Wait for compare transaction to be confirmed
+      
       setCurrentStep("Waiting for comparison to complete...");
-      // Add a small delay to ensure the transaction is processed
+      
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Step 2: Call revealWinner function
+      
       setCurrentStep("Revealing winner...");
       const revealHash = await writeContractAsync({
         address: contractAddress,
@@ -154,11 +104,11 @@ const CompareRichest = () => {
 
       console.log("Reveal transaction hash:", revealHash);
 
-      // Step 3: Wait for reveal transaction and then read the result
+      
       setCurrentStep("Processing reveal transaction...");
-      await new Promise(resolve => setTimeout(resolve, 7000));
+      await new Promise(resolve => setTimeout(resolve, 9000));
 
-      // Step 4: Read the richIndex to get the winner
+      
       setCurrentStep("Reading winner result...");
       const result = await refetchRichIndex();
       
@@ -169,7 +119,7 @@ const CompareRichest = () => {
         setShowWinner(true);
         setSuccess(`Comparison complete! Winner revealed successfully.`);
       } else {
-        // Fallback: try reading after a longer delay
+        
         setTimeout(async () => {
           const delayedResult = await refetchRichIndex();
           if (delayedResult.data !== undefined) {
@@ -223,7 +173,7 @@ const CompareRichest = () => {
         </p>
       </div>
 
-      {/* Current richIndex display */}
+      
       {richIndex !== undefined && !loading && (
         <div className="bg-blue-900/20 border border-blue-500 rounded p-3 mb-4">
           <p className="text-blue-400 text-sm">
@@ -250,7 +200,7 @@ const CompareRichest = () => {
         )}
       </button>
 
-      {/* Loading steps */}
+      
       {loading && currentStep && (
         <div className="bg-blue-900/20 border border-blue-500 rounded p-3">
           <p className="text-blue-400 text-sm flex items-center gap-2">
@@ -260,7 +210,7 @@ const CompareRichest = () => {
         </div>
       )}
 
-      {/* Winner Display */}
+      
       {showWinner && winner && (
         <div className="bg-gradient-to-r from-yellow-900/20 to-amber-900/20 border border-yellow-500 rounded p-4">
           <div className="flex items-center gap-3 mb-2">
@@ -288,7 +238,7 @@ const CompareRichest = () => {
         </div>
       )}
 
-      {/* Instructions */}
+      
       <div className="bg-gray-700/30 rounded p-3 mt-4">
         <p className="text-gray-400 text-xs">
           💡 This will compare all submitted encrypted balances and automatically reveal the winner.
