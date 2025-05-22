@@ -1,0 +1,7 @@
+import encyptedERC20ABI from "@/abi/encryptedERC20.json";
+
+export const ENCRYPTED_ERC20_CONTRACT_ADDRESS =
+  "0x3ddc06411cb3303246a956c8a28b04ab0811d30c"; 
+
+export const ENCRYPTEDERC20ABI = encyptedERC20ABI;
+export const CONTRACT_ADDRESS = "0x71582639b5Da884f1283eb8752c102D9b09E6731";

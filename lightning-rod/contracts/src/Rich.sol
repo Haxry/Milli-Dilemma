@@ -29,6 +29,7 @@ contract RichestComparison {
         require(msg.sender == alice || msg.sender == bob || msg.sender == eve, "Not a valid participant");
 
         euint256 value = valueInput.newEuint256(msg.sender);
+        value.allowThis();
         encryptedBalances[msg.sender] = value;
     }
 
