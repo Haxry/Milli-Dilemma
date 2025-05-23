@@ -2,13 +2,16 @@
 
 A secure game using [Inco Lightning](https://docs.inco.org/lightning/) that allows three participants (Alice, Bob, and Eve) to secretly submit their balances on-chain — without revealing the values — and determine who is the richest among them. Inspired by the classic *Millionaires' Problem* in cryptography.
 
----
+## Video Link
+[Millionaires dilemma](https://vimeo.com/1087215678?share=copy#t=0)
 
+## Contract Transactions 
+I have used 0xD1213096a1BaD36FefA367f497EFd2177d51466c contract for demonstration in the video, You can view the transactions [here](https://sepolia.basescan.org/address/0xd1213096a1bad36fefa367f497efd2177d51466c)
 ## ⚡ How it Works
 
 The core contract, [`RichestComparison`](https://github.com/Haxry/Milli-Dilemma/blob/master/lightning-rod/contracts/src/Rich.sol), is built using Inco Lightning, a library that allows encrypted computation on-chain. Participants submit encrypted values, and comparison is done securely using `euint256` and `ebool` types. No private value is ever revealed.
 
-### 🧠 Flow
+### Flow
 ![Screenshot 2025-05-23 014643](https://github.com/user-attachments/assets/0d01d0cc-a65c-4592-9967-518f06e8206d)
 
 
@@ -40,7 +43,7 @@ Lightning ensures sensitive information is kept private, while still allowing se
 git clone https://github.com/Haxry/Milli-Dilemma.git
 
 # Navigate to the frontend folder
-cd Milli-Dilemma/frontend
+cd Milli-Dilemma/frontend/nextjs-template
 
 # Install dependencies
 npm install
