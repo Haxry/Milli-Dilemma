@@ -1,6 +1,6 @@
 # 💰 Millionaire’s Dilemma
 
-A secure game using [Inco Lightning](https://docs.inco.org/lightning/) that allows three participants (Alice, Bob, and Eve) to secretly submit their balances on-chain — without revealing the values — and determine who is the richest among them. Inspired by the classic *Millionaires' Problem* in cryptography.
+A secure protocol using [Inco Lightning](https://docs.inco.org/lightning/) that allows three participants (Alice, Bob, and Eve) to secretly submit their balances on-chain — without revealing the values — and determine who is the richest among them. Inspired by the classic *Millionaires' Problem* in cryptography.
 
 ## Video Link
 [Millionaires dilemma](https://vimeo.com/1087215678?share=copy#t=0)
