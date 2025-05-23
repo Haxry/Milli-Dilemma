@@ -14,8 +14,6 @@ contract RichestComparison {
     address public eve;
 
     mapping(address => euint256) public encryptedBalances;
-    uint8 public submissions;
-
     euint256 public richestIndex; // 0 = Alice, 1 = Bob, 2 = Eve
     uint256 public richIndex;
 
