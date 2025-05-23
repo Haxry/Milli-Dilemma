@@ -13,13 +13,6 @@ contract RichestComparison {
     address public bob;
     address public eve;
 
-    event RichestComparisonEvent(
-        address indexed alice,
-        address indexed bob,
-        address indexed eve,
-        uint256 richestIndex
-    );
-
     mapping(address => euint256) public encryptedBalances;
     uint8 public submissions;
 
