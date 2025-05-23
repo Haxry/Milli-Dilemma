@@ -6,7 +6,8 @@ A secure game using [Inco Lightning](https://docs.inco.org/lightning/) that allo
 [Millionaires dilemma](https://vimeo.com/1087215678?share=copy#t=0)
 
 ## Contract Transactions 
-I have used 0xD1213096a1BaD36FefA367f497EFd2177d51466c contract for demonstration in the video, You can view the transactions [here](https://sepolia.basescan.org/address/0xd1213096a1bad36fefa367f497efd2177d51466c)
+I have used 0xD1213096a1BaD36FefA367f497EFd2177d51466c contract for demonstration in the video, You can view the transactions [here](https://sepolia.basescan.org/address/0xd1213096a1bad36fefa367f497efd2177d51466c).
+The testing is done [here](https://github.com/Haxry/Milli-Dilemma/blob/master/lightning-rod/contracts/src/test/TestRich.t.sol)
 ## ⚡ How it Works
 
 The core contract, [`RichestComparison`](https://github.com/Haxry/Milli-Dilemma/blob/master/lightning-rod/contracts/src/Rich.sol), is built using Inco Lightning, a library that allows encrypted computation on-chain. Participants submit encrypted values, and comparison is done securely using `euint256` and `ebool` types. No private value is ever revealed.
